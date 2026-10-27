@@ -545,3 +545,33 @@ mod_generator!(
         )
     ]
 );
+
+// Firefox 158: like ff150 but drops one cipher (ECDHE_ECDSA_AES256_CBC). CIPHER_LIST_2 = 15 ciphers.
+mod_generator!(
+    ff158,
+    tls_options!(4, CIPHER_LIST_2, CURVES_2, KEY_SHARES_2),
+    http2_options!(1),
+    header_initializer_with_zstd_q09,
+    [
+        (
+            Windows,
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:158.0) Gecko/20100101 Firefox/158.0"
+        ),
+        (
+            MacOS,
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:158.0) Gecko/20100101 Firefox/158.0"
+        ),
+        (
+            Linux,
+            "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:158.0) Gecko/20100101 Firefox/158.0"
+        ),
+        (
+            Android,
+            "Mozilla/5.0 (Android 13; Mobile; rv:158.0) Gecko/158.0 Firefox/158.0"
+        ),
+        (
+            IOS,
+            "Mozilla/5.0 (iPhone; CPU iPhone OS 18_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/158.0 Mobile/15E148 Safari/605.1.15"
+        )
+    ]
+);
